@@ -3,21 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/img"
+    android:background="@color/black"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
     <ImageView
         android:id="@+id/memeView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_marginTop="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:background="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/sharebutton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintBottom_toTopOf="@id/sharebutton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/black"
         app:layout_constraintVertical_bias="0.0"
         tools:srcCompat="@tools:sample/avatars" />
 
@@ -30,42 +32,51 @@
         app:layout_constraintLeft_toLeftOf="@id/memeView"
         app:layout_constraintRight_toRightOf="@id/memeView"
         />
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/sharebutton"
-        android:layout_width="0dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:text="@string/sharememe"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guideline"
-        android:padding="20dp"
-        android:onClick="sharememe"
+        android:layout_marginTop="64dp"
         android:layout_marginRight="1dp"
-        app:layout_constraintHorizontal_bias="0.0"
-        android:background="@color/sharebutco"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:background="@drawable/button_shape"
+        android:onClick="sharememe"
+        android:gravity="center"
+        android:paddingStart="16dp"
+        android:paddingEnd="45dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:text="      SHARE"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:drawableEnd="@drawable/share_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/memeView" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/nextbutton"
-        android:layout_width="0dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:text="@string/nextmeme"
-        android:padding="20dp"
+        android:background="@drawable/button_shape"
         android:onClick="nextmeme"
-        android:layout_marginLeft="1dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="55dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:drawableEnd="@drawable/next_icon"
+        android:text="         NEXT"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.702"
-        android:background="@color/black"
-        app:layout_constraintStart_toStartOf="@+id/guideline" />
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sharebutton"
+        app:layout_constraintVertical_bias="0.351" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

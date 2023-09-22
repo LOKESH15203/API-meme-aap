@@ -5,7 +5,9 @@ import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.view.WindowManager
 import android.widget.Toast
+import androidx.appcompat.app.ActionBar
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
@@ -20,6 +22,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        supportActionBar?.hide()
         setContentView(R.layout.activity_main)
 
         newMeme()
@@ -27,15 +30,16 @@ class MainActivity : AppCompatActivity() {
 
     fun newMeme(){
         progressbar.visibility = View.VISIBLE
+
 // Instantiate the RequestQueue.
+        val url = "https://meme-api.com/gimme"  
 
-        val url = "https://meme-api.com/gimme"
-
-// Request a string response from the provided URL.
+// Request a string response and then a Json response from the provided URL.
         val jsonObjectRequest = JsonObjectRequest(
             Request.Method.GET, url, null,
             Response.Listener{ response ->
                 val url = response.getString("url")
+                // Glide view is used to add images from API to imageview
                 Glide.with(this).load(url).listener(object : RequestListener<Drawable>{
                     override fun onLoadFailed(
                         e: GlideException?,
